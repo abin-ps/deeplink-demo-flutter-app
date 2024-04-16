@@ -26,7 +26,7 @@ class _DemoScreenState extends State<DemoScreen> {
                 : TextButton(
                     onPressed: () {
                       setState(() {
-                        deepLinkUrl = 'myscheme://yourdomain.com/path';
+                        deepLinkUrl = 'https://simple-web-app-b8e17.web.app/';
                       });
                     },
                     style: TextButton.styleFrom(foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20)),
@@ -45,7 +45,8 @@ class _DemoScreenState extends State<DemoScreen> {
 
                     //copy or reset deeplink url
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         //copy deeplink url button
                         TextButton(
