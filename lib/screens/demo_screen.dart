@@ -21,16 +21,36 @@ class _DemoScreenState extends State<DemoScreen> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             //generate deeplink url button
-            deepLinkUrl.isNotEmpty
-                ? const SizedBox()
-                : TextButton(
-                    onPressed: () {
-                      setState(() {
-                        deepLinkUrl = 'https://simple-web-app-b8e17.web.app/';
-                      });
-                    },
-                    style: TextButton.styleFrom(foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20)),
-                    child: const Text('Generate url')),
+            ...deepLinkUrl.isNotEmpty
+                ? [const SizedBox()]
+                : [
+                    //generate demo page link
+                    TextButton(
+                        onPressed: () {
+                          setState(() {
+                            deepLinkUrl = 'https://simple-web-app-b8e17.web.app/';
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          textStyle: const TextStyle(fontSize: 20),
+                        ),
+                        child: const Text('Generate demo url')),
+                    //bottom padding
+                    const SizedBox(height: 16),
+                    //generate products page link
+                    TextButton(
+                        onPressed: () {
+                          setState(() {
+                            deepLinkUrl = 'https://simple-web-app-b8e17.web.app/products/1';
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          textStyle: const TextStyle(fontSize: 20),
+                        ),
+                        child: const Text('Generate Product url'))
+                  ],
 
             ...deepLinkUrl.isEmpty
                 ? []

@@ -1,10 +1,12 @@
+import 'package:deeplink_demo_app/routes.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/demo_screen.dart';
+// import 'screens/demo_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp( MaterialApp.router(
     debugShowCheckedModeBanner: false,
-    home: DemoScreen(),
+    routerConfig: goRouter,
+    // home: DemoScreen(),
   ));
 }
