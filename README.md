@@ -3,7 +3,7 @@
 ## Intro
  - For setup deep link demo app like this, you need a website/webapp. if you don't have one, no worries check [this repository](https://github.com/abin-ps/simple-web-app-with-flutter-firebase), where you can get idea about creating your own webapp with flutter and firebase.
 
- - If you have a website/webapp you need to add some configuration to it. you can check required configuration [here](link here).
+ - If you have a website/webapp you need to add some configuration to it. you can check required configuration [here](https://github.com/abin-ps/deeplink-demo-flutter-app?tab=readme-ov-file#steps-for-users-who-doesnt-use-flutter-for-their-websitewebapp-users).
 
  - Here I'll help you to implement android applinks on your flutter app. If you're looking for iOS configureations, you can check this article by CodeWithAndrena. Let's get started.
 
@@ -23,7 +23,7 @@
 </intent-filter>
 ```
 - After adding these on your app, you need unique Signing keys of your app. where this key is verified by android with our domain configurations, when user clicks the link.
-- If you're already have the signing key to your app and app is not published yet then, [follow from this step](link here) or if you already published your app to playstore then, [check this](Steps for users already published their app on playstore). otherwise do following steps carefully.
+- If you're already have the signing key to your app and app is not published yet then, [follow from this step](https://github.com/abin-ps/deeplink-demo-flutter-app?tab=readme-ov-file#steps-for-users-already-have-signingkey-but-not-published-their-app-on-playstore) or if you already published your app to playstore then, [check this](https://github.com/abin-ps/deeplink-demo-flutter-app?tab=readme-ov-file#steps-for-users-already-published-their-app-on-playstore). otherwise do follow the steps carefully.
 - For generating unique signing key for your app, run following command. 
 ```bash
   keytool -genkey -v -keystore your-keystore-filename-here.jks -keyalg RSA -keysize 2048 -validity 10000 -alias your-alias-name
@@ -95,19 +95,19 @@ if (keystorePropertiesFile.exists()) {
 * Here I use flutter project for creating simple web app. you can check that [here](https://github.com/abin-ps/simple-web-app-with-flutter-firebase).
 
 ### Steps for users already have signingKey but not published their app on playstore:
-* If you already have SHA-256 appSigning key then go to your webapp/website project and add  `assetlinks.json` file on that project. which should be accessible like this, `https://your-domain.com/.well-known/assetlinks.json` which basically used for verifying your apps unique key. then [check this](Update `assetlinks.json` file) for adding configurations to it.
+* If you already have SHA-256 appSigning key then go to your webapp/website project and add  `assetlinks.json` file on that project. which should be accessible like this, `https://your-domain.com/.well-known/assetlinks.json` which basically used for verifying your apps unique key. then [check this]([Update `assetlinks.json` file](https://github.com/abin-ps/deeplink-demo-flutter-app#update-assetlinksjson-file)) for adding configurations to it.
 
 ### Steps for users already published their app on playstore:
-* If you're already published the app to playstore. check `app Signing`  on your google console and copy the ` SHA-256 key` (which is unique for each apps) from their. then update your `assetlinks.json` file. which should be accessible like this, `https://your-domain.com/.well-known/assetlinks.json` which basically used for verifying your apps unique key. This verification is done by android itself. after creating the file [check this](Update `assetlinks.json` file) for adding configurations to it.
+* If you're already published the app to playstore. check `app Signing`  on your google console and copy the ` SHA-256 key` (which is unique for each apps) from their. then update your `assetlinks.json` file. which should be accessible like this, `https://your-domain.com/.well-known/assetlinks.json` which basically used for verifying your apps unique key. This verification is done by android itself. after creating the file [check this]([Update `assetlinks.json` file](https://github.com/abin-ps/deeplink-demo-flutter-app#update-assetlinksjson-file)) for adding configurations to it.
 
 ### Steps for users who uses flutter for creating webapp:
  * If you done `firebase init hosting` to your flutter web app then, firstly you need to open `firebase.json` file which is inside of your project directory. where, check the `public` key. navigate to the location mentioned in that, and create a folder called `.well-known/` inside that create a file called `assetlinks.json` file.
  * If you don't use firebase hosting, then you need to create a file called `assetlinks.json` which should be accessible like this, `https://your-domain.com/.well-known/assetlinks.json`. 
-* Once created [check this](Update `assetlinks.json` file) 
+* Once created [check this]([Update `assetlinks.json` file](https://github.com/abin-ps/deeplink-demo-flutter-app#update-assetlinksjson-file)) 
 
-### Steps for users who doesn't use flutter for their website/webapp users:
+### Steps for users who doesn't use flutter for their website/webapp (own website/ webapp):
 - The users didn't use flutter for their website/webapp. need to create a file called, `.well-known/assetlinks.json` on your website/webapp project. 
-  [check this](Update `assetlinks.json` file) to add configurations to it.
+  [check this]([Update `assetlinks.json` file](https://github.com/abin-ps/deeplink-demo-flutter-app#update-assetlinksjson-file)) to add configurations to it.
 - Note: these configurations are used by android when a user click on your link, it will check the signingKey with your configureations. so you should make sure these configurations accessible like this, `https://your-domain.com/.well-known/assetlinks.json`. if not, android will navigate user to your website instead of app.
 
 ## Update `assetlinks.json` file:
